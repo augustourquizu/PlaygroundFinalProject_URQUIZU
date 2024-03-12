@@ -2,12 +2,12 @@
 {% block resto %}
 {% endblock resto%}
 {% block headline %}
-<h1 class="display-4 font-weight-normal">Registrarse</h1>
-<form action={% url "registrar"%} method="POST">
+<h1 class="display-4 font-weight-normal">Login</h1>
+<form action={% url "login" %} method="POST">
     {% csrf_token %}
     <table>
         {{formulario}}
     </table>
-    <input type="submit" value="Registrar">
+    <input type="submit" value="Login">
 </form>
 {% endblock headline %}

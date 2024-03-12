@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+{% block resto %}
+{% endblock resto%}
+{% block headline %}
+<h1 class="display-4 font-weight-normal">Editar perfil</h1>
+<form action={% url "editar_perfil" %} method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    
+    <input type="submit" value="Editar">
+</form>
+<a class="btn btn-warning" href={% url "cambiar_contrasenia" %}>Cambiar Contraseña</a>
+{% endblock headline %}

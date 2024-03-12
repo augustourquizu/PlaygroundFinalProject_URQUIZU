@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block resto %}
+{% endblock resto%}
+{% block headline %}
+<h1 class="display-4 font-weight-normal">Cambiar Contraseña</h1>
+<form action={% url "cambiar_contrasenia" %} method="POST">
+  {% csrf_token %}
+  <table>
+      {{form}}
+  </table>
+  
+  <input class='btn btn-warning' type="submit" value="Cambiar">
+</form>
+{% endblock headline %}
