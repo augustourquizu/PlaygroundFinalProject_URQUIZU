@@ -1,0 +1,13 @@
+{% extends "base.html"%}
+{% block resto %}
+{% endblock resto%}
+{% block headline %}
+
+<h1 class="display-4 font-weight-normal">Eliminar evento</h1>
+
+<form action={% url "eliminar_elemento" elemento.id %} method="POST">
+    {% csrf_token %}
+    <p>Confirma el borrado de el evento {{evento}}</p>
+    <input type="submit" value="Confirmar">
+</form>
+{%endblock headline%}

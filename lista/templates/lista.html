@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+{% block resto %}
+{% endblock resto%}
+{% block headline %}
+
+<a href={% url "crear_elemento" %}>Crear elemento</a>
+
+{% if lista %}
+<ul>
+    {% for elemento in lista %}
+    <li>{{elemento}} | 
+        <a href={% url 'detalle_elemento' elemento.id %}>Detalle</a> 
+        | <a href={% url 'eliminar_elemento' elemento.id %}>Eliminar</a> |
+         <a href={% url 'editar_elemento' elemento.id %}>Editar</a> 
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron elementos cargados.</p>
+{% endif %}
+
+{%endblock headline%}

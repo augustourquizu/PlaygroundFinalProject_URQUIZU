@@ -2,13 +2,14 @@
 {% block resto %}
 {% endblock resto%}
 {% block headline %}
-<h1 class="display-4 font-weight-normal">Editar perfil</h1>
-<form action={% url "editar_perfil" %} method="POST" enctype="multipart/form-data">
+<h1 class="display-4 font-weight-normal">Editar evento</h1>
+
+<form action={% url "editar_elemento" elemento.id %} method="POST">
     {% csrf_token %}
     <table>
-        {{formulario}}
+        {{form.media}}
+        {{form}}
     </table>
-    
     <input type="submit" value="Editar">
 </form>
 {% endblock headline %}

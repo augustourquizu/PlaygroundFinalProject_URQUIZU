@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+{% block resto %}
+{% endblock resto%}
+{% block headline %}
+<h1 class="display-4 font-weight-normal">Crear evento</h1>
+
+<form action={% url 'crear_elemento' %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{form.media}}
+        {{form}}
+    </table>
+
+    <input type="submit" value="Crear Evento">
+</form>
+{% endblock headline %}

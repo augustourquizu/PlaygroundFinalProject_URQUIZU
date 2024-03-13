@@ -47,16 +47,16 @@ def editar_perfil(request):
     user = request.user
     datos_extra, _ = DatosExtras.objects.get_or_create(user=user)
     
-    if request.method == 'POST':
+    if request.method == "POST":
         formulario = EditarPerfil(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
             avatar = formulario.cleaned_data.get('avatar')
             if avatar:
                 datos_extra.avatar = avatar
-                
+                 
             datos_extra.save()
             formulario.save()
-            return redirect('perfil')
+            return redirect('inicio')
     else:
         formulario = EditarPerfil(initial={'avatar': datos_extra.avatar}, instance=request.user)
     return render(request, 'editar_perfil.html', {'formulario': formulario})

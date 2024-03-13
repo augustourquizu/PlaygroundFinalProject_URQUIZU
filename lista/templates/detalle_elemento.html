@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block resto %}
+{% endblock resto%}
+{% block headline %}
+<h1 class="display-4 font-weight-normal">Detalle del evento</h1>
+
+<ul>
+    <li>Nombre: {{elemento.datos_extra}}</li>
+    <li>Ubicacion del evento: {{elemento.lugar}}</li>
+    <li>Imagen de la ubicacion: {{elemento.imagen}}</li>
+    <li>Descripcion: {{elemento.descripcion}}</li>
+    <li>Fecha del evento: {{elemento.dia}}</li>
+</ul>
+{% endblock headline %}
