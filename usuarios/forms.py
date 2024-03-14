@@ -10,18 +10,18 @@ class CreacionDeUsuario(UserCreationForm):
     
     class Meta:
         model=User
-        fields=["username", "email", "password1", "password2"]
+        fields= ["username", "email", "password1", "password2"]
         help_texts={llave: "" for llave in fields}
         
 class EditarPerfil(UserChangeForm):
-    password=None
-    email=forms.EmailField(label='Email:')
-    first_name=forms.CharField(label='Nombre:')
-    last_name=forms.CharField(label='Apellido:')
+    password= None
+    email= forms.EmailField(label='Email:')
+    first_name= forms.CharField(label='Nombre:')
+    last_name= forms.CharField(label='Apellido:')
     avatar = forms.ImageField(required=False)
-    bio=forms.CharField(label="Bio:")
+    bio= forms.CharField(label="Bio:")
     
     class Meta:
         model=User
-        fields=["email", "first_name", "last_name", 'avatar']
+        fields=["email", "first_name", "last_name", 'avatar', "bio"]
         

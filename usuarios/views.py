@@ -9,7 +9,7 @@ from usuarios.models import DatosExtras
 
 
 class EditarContrasenia(PasswordChangeView):
-    template_name = 'cambiar_contrasenia.html'
+    template_name = 'usuarios/cambiar_contrasenia.html'
     success_url = reverse_lazy('perfil')
     
 
@@ -26,7 +26,7 @@ def login(request):
         user=authenticate(username=usuario, password=contrasenia)
         django_login(request, user)
         return redirect("inicio")
-    return render(request, "login.html", {"formulario":formulario})
+    return render(request, "usuarios/login.html", {"formulario":formulario})
 # Create your views here.
 
 def registrar(request):
@@ -36,27 +36,29 @@ def registrar(request):
     if formulario.is_valid():
         formulario.save()
         return redirect("inicio")
-    return render(request, "registrar.html", {"formulario":formulario})
+    return render(request, "usuarios/registrar.html", {"formulario":formulario})
 # Create your views here.
 
 def perfil(request):
-    return render(request, "perfil.html")
+    return render(request, "usuarios/perfil.html")
 
 def editar_perfil(request):
     
     user = request.user
     datos_extra, _ = DatosExtras.objects.get_or_create(user=user)
     
-    if request.method == "POST":
+    if request.method == 'POST':
         formulario = EditarPerfil(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
             avatar = formulario.cleaned_data.get('avatar')
+            bio= formulario.cleaned_data.get('bio')
             if avatar:
                 datos_extra.avatar = avatar
-                 
+
+            datos_extra.bio=bio   
             datos_extra.save()
             formulario.save()
-            return redirect('inicio')
+            return redirect('perfil')
     else:
-        formulario = EditarPerfil(initial={'avatar': datos_extra.avatar}, instance=request.user)
-    return render(request, 'editar_perfil.html', {'formulario': formulario})
+        formulario = EditarPerfil(initial={'avatar': datos_extra.avatar, 'bio': datos_extra.bio }, instance=request.user)
+    return render(request, 'usuarios/editar_perfil.html', {'formulario': formulario})

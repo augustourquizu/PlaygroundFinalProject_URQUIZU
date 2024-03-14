@@ -4,7 +4,7 @@
 {% block headline %}
 <h1 class="display-4 font-weight-normal">Editar evento</h1>
 
-<form action={% url "editar_elemento" elemento.id %} method="POST">
+<form action={% url "editar_elemento" lista.id %} method="POST">
     {% csrf_token %}
     <table>
         {{form.media}}

@@ -9,9 +9,9 @@
 <ul>
     {% for elemento in lista %}
     <li>{{elemento}} | 
-        <a href={% url 'detalle_elemento' elemento.id %}>Detalle</a> 
-        | <a href={% url 'eliminar_elemento' elemento.id %}>Eliminar</a> |
-         <a href={% url 'editar_elemento' elemento.id %}>Editar</a> 
+        <a href={% url 'detalle_elemento' lista.id %}>Detalle</a> 
+        | <a href={% url 'eliminar_elemento' lista.id %}>Eliminar</a> |
+         <a href={% url 'editar_elemento' lista.id %}>Editar</a> 
     </li>
     {% endfor %}
 </ul>

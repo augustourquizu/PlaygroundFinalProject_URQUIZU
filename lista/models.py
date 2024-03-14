@@ -2,7 +2,7 @@ from django.db import models
 
 class Lista(models.Model):
     descripcion = models.TextField(null=True)
-    datos_extra= models.CharField(max_length=50, default='Nombre')
+    datos_extra= models.CharField(max_length=50, default='Nombre por ej.')
     dia = models.DateField()
     imagen = models.ImageField(upload_to='uploads/', null=True, blank=True)
     lugar = models.CharField(max_length=50)
