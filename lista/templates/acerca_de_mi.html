@@ -1,7 +1,9 @@
 {% extends "base.html"%}
+{% load static %}
 {% block resto %}
 {% endblock resto%}
 {% block headline %}
+
 <h2 class="display-5">Acerca de mi</h2>
 
 <p>Soy Augusto Urquizu, 
@@ -9,5 +11,7 @@
     sobre Python antes de empezar la carrera en la facultad. El objetivo de la pagina que cree es que 
     se pueda usar como una 
     lista para facilitar la organizacion de eventos</p>
+<img src="{% static 'lista/images/yo.jpg' %}"  alt="" height="200px">
+
 
 {%endblock headline%}
