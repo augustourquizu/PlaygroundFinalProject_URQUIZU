@@ -7,7 +7,7 @@
 
 <form action={% url "eliminar_elemento" lista.id %} method="POST">
     {% csrf_token %}
-    <p>Confirma el borrado de el evento {{evento}}</p>
+    <p>Confirma el borrado de el evento {{elemento.nombre}}</p>
     <input type="submit" value="Confirmar">
 </form>
 {%endblock headline%}

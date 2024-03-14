@@ -7,28 +7,28 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class Lista(ListView):
+class Evento(ListView):
     model = Lista
-    context_object_name = 'elemento'
-    template_name = "lista.html"
+    context_object_name = 'evento'
+    template_name = "evento.html"
 
     
 class CrearElemento(CreateView):
     model = Lista
     template_name = "crear_elemento.html"
-    fields = ['descripcion', 'datos_extra', 'dia', 'imagen', 'lugar']
-    success_url = reverse_lazy('lista')
+    fields = [ 'nombre','descripcion', 'dia', 'imagen', 'lugar']
+    success_url = reverse_lazy('evento')
 
 class EliminarElemento(LoginRequiredMixin, DeleteView):
     model = Lista
     template_name = "eliminar_elemento.html"
-    success_url = reverse_lazy('lista')
+    success_url = reverse_lazy('evento')
 
 class EditarElemento(LoginRequiredMixin, UpdateView):
     model = Lista
     template_name = "editar_elemento.html"
-    success_url = reverse_lazy('lista')
-    fields = ['descripcion', 'datos_extra', 'dia', 'imagen', 'lugar']
+    success_url = reverse_lazy('evento')
+    fields = [ 'nombre', 'descripcion', 'dia', 'imagen', 'lugar']
 
 class DetalleElemento(DetailView):
     model = Lista

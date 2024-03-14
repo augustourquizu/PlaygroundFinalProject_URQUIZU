@@ -4,11 +4,15 @@
 {% block headline %}
 <h1 class="display-4 font-weight-normal">Detalle del evento</h1>
 
-<ul>
-    <li>Nombre: {{lista.datos_extra}}</li>
-    <li>Ubicacion del evento: {{lista.lugar}}</li>
-    <li>Imagen de la ubicacion: {{lista.imagen}}</li>
-    <li>Descripcion: {{lista.descripcion}}</li>
-    <li>Fecha del evento: {{lista.dia}}</li>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-primary">Nombre: {{lista.nombre}}</li>
+    <li class="list-group-item list-group-item-primary">Ubicacion del evento: {{lista.lugar}}</li>
+    <li class="list-group-item list-group-item-primary">Imagen de la ubicacion: 
+        {% if lista.imagen %} 
+        <img src={{lista.imagen.url}} alt="" height="50px"> 
+        {% endif %}
+    </li>
+    <li class="list-group-item list-group-item-primary">Descripcion: {{lista.descripcion}}</li>
+    <li class="list-group-item list-group-item-primary">Fecha del evento: {{lista.dia}}</li>
 </ul>
 {% endblock headline %}

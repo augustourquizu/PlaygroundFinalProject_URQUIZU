@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+{% block resto %}
+{% endblock resto%}
+{% block headline %}
+<h2 class="display-5">Eventos</h2>
+
+{% if evento %}
+<ul class="list-group">
+    {% for elemento in evento %}
+    <li class="list-group-item">{{elemento.nombre}} | 
+        <a href={% url 'detalle_elemento' elemento.id %}>Detalle</a> 
+        | <a href={% url 'eliminar_elemento' elemento.id %}>Eliminar</a> |
+         <a href={% url 'editar_elemento' elemento.id %}>Editar</a> 
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron elementos cargados.</p>
+{% endif %}
+<a href={% url "crear_elemento" %}>Crear elemento</a>
+
+{%endblock headline%}
