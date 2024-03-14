@@ -19,11 +19,12 @@ from django.urls import path, include
 from usuarios.views import inicio
 from django.conf.urls.static import static
 from django.conf import settings
-
+from lista.views import acerca_de_mi
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path("usuarios/", include("usuarios.urls")),
-     path("lista/", include("lista.urls")),
+    path("lista/", include("lista.urls")),
+    path("Acerca de mi", acerca_de_mi, name='acerca_de_mi'),
     path("", inicio, name='inicio'),]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -6,7 +6,7 @@ from usuarios.forms import CreacionDeUsuario, EditarPerfil
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from usuarios.models import DatosExtras
-
+from django.contrib.auth.decorators import login_required
 
 class EditarContrasenia(PasswordChangeView):
     template_name = 'usuarios/cambiar_contrasenia.html'
@@ -15,6 +15,7 @@ class EditarContrasenia(PasswordChangeView):
 
 def inicio(request):
     return render(request, "base.html", locals())
+
 
 def login(request):
     formulario=AuthenticationForm()
@@ -39,9 +40,11 @@ def registrar(request):
     return render(request, "usuarios/registrar.html", {"formulario":formulario})
 # Create your views here.
 
+@login_required(login_url='/usuarios/login/')
 def perfil(request):
     return render(request, "usuarios/perfil.html")
 
+@login_required(login_url='/usuarios/login/')
 def editar_perfil(request):
     
     user = request.user

@@ -4,7 +4,7 @@
 {% block headline %}
 <h1 class="display-4 font-weight-normal">Crear evento</h1>
 
-<form action={% url "crear_elemento" %} method="POST">
+<form action={% url "crear_elemento" %} method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         {{form.media}}

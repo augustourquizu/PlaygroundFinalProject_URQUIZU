@@ -3,15 +3,17 @@
 {% endblock resto%}
 {% block headline %}
 <h1 class="display-4 font-weight-normal">Informacion de {{request.user.username}}</h1>
-<ul>
-    <li> Nombre: {{request.user.first_name}}
-    <li> Apellido: {{request.user.last_name}}
-    <li> Email: {{request.user.email}}
-    <li> Bio: {{request.user.datosextras.bio}}
+<ul class="list-group">
+    <li class="list-group-item list-group-item-success"> Nombre: {{request.user.first_name}}
+    <li class="list-group-item list-group-item-success "> Apellido: {{request.user.last_name}}
+    <li class="list-group-item list-group-item-success"> Apellido: {{request.user.last_name}}
+    <li class="list-group-item list-group-item-success"> Email: {{request.user.email}}
+    <li class="list-group-item list-group-item-success"> Bio: {{request.user.datosextras.bio}}
     {% if request.user.datosextras.avatar %}
-        <li>Avatar: <img src={{request.user.datosextras.avatar.url}} alt="" height="100px"></li>
+        <li class="list-group-item list-group-item-success">Avatar: <img src={{request.user.datosextras.avatar.url}} alt="" height="100px"></li>
     {% endif %}
 </ul>
+<p> </p>
 <a class="btn btn-warning" href={% url "editar_perfil" %}>Editar Perfil</a>
 <a class="btn btn-warning" href={% url "cambiar_contrasenia" %}>Cambiar Contraseña</a>
 {% endblock headline %}
